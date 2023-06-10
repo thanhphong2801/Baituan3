@@ -24,21 +24,21 @@ public class BookController {
     public String showAllBooks(Model model) {
         List<Book> books = bookService.getAllBooks();
         model.addAttribute("books", books);
-        return "book/list";
+        return "books/list";
     }
 
     @GetMapping("/add")
     public String addBookForm(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("categories", categoryService.getAllCategories());
-        return "book/add";
+        return "books/add";
     }
 
     @PostMapping("/add")
     public String addBook(@Valid @ModelAttribute("book") Book book, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("categories", categoryService.getAllCategories());
-            return "book/add";
+            return "books/add";
         }
         bookService.addBook(book);
         return "redirect:/books";

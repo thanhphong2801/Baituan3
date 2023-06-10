@@ -1,6 +1,7 @@
 package com.examplelab.so4.Repository;
 
 
+import com.examplelab.so4.enity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
